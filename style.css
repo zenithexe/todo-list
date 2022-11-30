@@ -3,10 +3,6 @@
     src: url(Poppins-Regular.ttf);
   }
 
-@font-face {
-    font-family: Quicksand;
-    src: url(Quicksand-Regular.ttf);
-  }
 
 body{
     margin: 0px;
