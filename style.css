@@ -3,6 +3,11 @@
     src: url(Poppins-Regular.ttf);
   }
 
+@font-face {
+    font-family: Quicksand;
+    src: url(Quicksand-Regular.ttf);
+  }
+
 
 @font-face {
     font-family: Quicksand;
@@ -215,7 +220,7 @@ h1{
 
 .footer-text{
     text-decoration: none;
-    font-family: quicksand;
+    font-family: Quicksand;
     font-weight: 900;
     font-size: 13px;
     color: black;
