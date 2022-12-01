@@ -34,11 +34,11 @@ function addTask(){
     
     var htmlCode = `
     <div id="tc${taskCount}"class="task-container">
-        <div class="task-name-check-container">
+        <div id="tncc${taskCount}" class="task-name-check-container">
             <input id="c${taskCount}" class="task-checkbox" type="checkbox" oninput="onChecked(id.substring(1))" />
             <p id="tn${taskCount}" class="task-name">${value}</p>
         </div>
-        
+        <i id="e${taskCount}" onclick="editTask(id.substring(1))" class="fa-solid fa-pen-to-square"></i>
         <i id="d${taskCount}" onclick="deleteTask(id.substring(1))" class="fa-solid fa-circle-minus"></i>
     </div>`;
 
@@ -89,4 +89,34 @@ function deleteTask(id){
         list[0].remove();
         noTask();
     }
+}
+
+
+function editTask(id){
+    var taskname = document.getElementById("tn"+id);
+    var taskEditInputHtml = `<input id="tei${id}" class="task-name-change-box" type="text" value="${taskname.innerText}">`;
+
+    taskname.remove();
+    var taskCheckContainer = document.getElementById("tncc"+id);
+    taskCheckContainer.innerHTML += taskEditInputHtml;
+
+
+    var editButton = document.getElementById("e"+id);
+    editButton.setAttribute( "onClick", "editDone("+id+");");
+    editButton.className = "fa-solid fa-circle-check";
+    
+}
+
+function editDone(id){
+    var editButton = document.getElementById("e"+id);
+    editButton.className = "fa-solid fa-pen-to-square";
+
+    var taskname = document.getElementById("tei"+id).value;
+    var taskNameHtml = `<p id="tn${id}" class="task-name">${taskname}</p>`;
+    document.getElementById("tei"+id).remove();
+    
+    var taskCheckContainer = document.getElementById("tncc"+id);
+    taskCheckContainer.innerHTML = taskCheckContainer.innerHTML + taskNameHtml;
+
+    editButton.setAttribute( "onClick", "editTask("+id+");");
 }
