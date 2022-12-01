@@ -1,7 +1,13 @@
 @font-face {
     font-family: Poppins;
-    src: url(Roppins-Regular.ttf);
+    src: url(Poppins-Regular.ttf);
   }
+
+
+@font-face {
+    font-family: Quicksand;
+    src: url(Quicksand-Regular.ttf);
+}
 
 body{
     margin: 0px;
@@ -182,7 +188,7 @@ h1{
 .no-task-container{
     display: flex;
     position: relative;
-    height: 50vh;
+    height: 500px;
     align-items: center;
 }
 

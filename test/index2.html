@@ -1,0 +1,52 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <div id="addTaskDiv">
+            <input type="text" id="taskInput" placeholder="Testing">
+            <button id="taskSubmitButton" onclick="addTask()">+ Add</button>
+            <p id="error"></p>
+        </div>
+    </body>
+
+    <script>
+        var count=1;
+
+        function addTask(){
+
+            var taskInput = document.getElementById("taskInput");
+
+            if(taskInput.value==""){
+                document.getElementById("error").innerText = "No Task Name";
+                return
+            }
+            else{
+                document.getElementById("error").innerText = "";
+            }
+            
+            var taskDiv = document.createElement("div");
+            taskDiv.id = "Task"+count.toString();
+            document.body.appendChild(taskDiv)
+            
+            
+            var taskname = document.getElementById("taskInput").value;
+
+            const taskElement = document.createElement("p")
+            taskElement.innerText = "Task "+count+":"+taskname;
+            taskDiv.appendChild(taskElement);
+            
+            const taskDeleteButton = document.createElement("button")
+            taskDeleteButton.innerText = "X Delete";
+            taskDeleteButton.onclick = () => {document.body.removeChild(taskDiv)}
+            taskElement.appendChild(taskDeleteButton);
+
+            taskInput.value = ""
+            count++;
+        }
+
+
+    </script>
+
+</html>
